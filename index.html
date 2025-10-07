@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Our Memory Scrapbook</title>
+<style>
+body, html { margin:0; padding:0; font-family:'Georgia', serif; color:#3b2f2f; height:100%; }
+.page { display:none; min-height:100vh; padding:40px; box-sizing:border-box; 
+       opacity: 0; transition: opacity 0.7s ease, transform 0.7s ease; transform: translateY(20px); }
+.active { display:block; opacity:1; transform: translateY(0); }
+.container { max-width: 1200px; margin: 0 auto; background-image: url(https://i.pinimg.com/736x/26/8c/f7/268cf78a35475778949a749881b2524f.jpg); background-size: cover; background-position: center; background-repeat: no-repeat; padding: 100px 20px 200px 20px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); position: relative; }
+
+h1{ font-size:48px; text-align:center; margin-bottom:20px; text-shadow:2px 2px 5px rgba(0,0,0,0.2); }
+h2{ font-size:36px; margin-top:0; opacity:0; animation: fadeInUp 1s ease forwards; }
+p{ font-size:18px; line-height:1.6; margin-bottom:20px; }
+img {
+  width: 100%;
+  height: auto;
+  max-height: 450px;
+  object-fit: contain;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+.memory-layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.memory-image img {
+  width: 380px;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  transition: transform 1s ease, box-shadow 1s ease;
+}
+
+.page.active .memory-image img {
+  transform: scale(1.05);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.35);
+}
+
+.memory-text {
+  flex: 1;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #4b2e2e;
+  font-family: 'Georgia', serif;
+}
+.memory-text h2 {
+  color: #b86b5a;
+  margin-bottom: 10px;
+}
+.memory-text p {
+  margin-top: 0;
+  white-space: pre-line;
+}
+
+.btn {
+  background-color: rgba(160, 82, 45, 0.85);
+  color: #fff8f0;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: "Georgia", serif;
+}
+
+.btn:hover {
+  background-color: rgba(120, 60, 30, 0.9);
+  transform: scale(1.15) rotate(-3deg);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+.nav-buttons {
+  position: absolute;
+  bottom: 30px;
+  right: 40px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Sparkle particles */
+@keyframes sparkle {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(-200px) rotate(360deg); opacity: 0; }
+}
+.particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.8);
+  animation: sparkle 6s linear infinite;
+}
+</style>
+</head>
+<body>
+
+<!-- Scrapbook Cover Page -->
+<div id="cover" class="page active" style="background: url(https://i.pinimg.com/1200x/57/4c/39/574c39dc26cfb46e26d19f00a60ca475.jpg) no-repeat center center fixed; background-size:cover;">
+  <div class="container" style="text-align:center; padding-top:200px;">
+    <h1 style="font-size:64px; color:#c01313; text-shadow: 2px 2px 10px rgba(0,0,0,0.6); animation: fadeInUp 2s ease;">Our Memory Scrapbook</h1>
+    <p style="font-size:24px; color:#4f0909; margin-top:20px; animation: fadeInUp 2.5s ease;">A collection of our precious moments 💖🌸</p>
+    <button class="btn" style="margin-top:40px; animation: fadeInUp 3s ease;" onclick="showPage('welcome')">Open Scrapbook 📖</button>
+    
+    <!-- Sparkle particles -->
+    <div class="particle" style="top:60%; left:25%; animation-delay:0s;"></div>
+    <div class="particle" style="top:70%; left:60%; animation-delay:1.5s;"></div>
+  </div>
+</div>
+
+<!-- Welcome Page -->
+<div id="welcome" class="page active" style="background: url(
+https://i.pinimg.com/1200x/4f/68/fa/4f68faa654322e9983e96bd473623861.jpg
+) no-repeat center center fixed; background-size:cover;">
+  <div class="container">
+    <h2>Welcome to our memories, Chekkoo❤️</h2>
+    <p style="font-weight:bold; text-align:center;">
+      🌙🫶Love isn’t just a feeling;<br>
+       it’s the quiet warmth in every heartbeat when I think of you.<br>
+        It’s the comfort of your voice, the sparkle in your eyes, and the peace<br>
+         I find in your presence. <br>✨🤍
+         You’ve become my favorite thought, my calm in chaos, and my reason to smile without a reason.<br>
+          With you, everything feels lighter, brighter, and infinitely better. <br>
+          Even silence becomes meaningful when shared with you.<br>
+           Every day, my heart learns new ways to love you — deeper, truer, stronger. <br>
+           You’re not just part of my life — you are my life’s most beautiful chapter..</p>
+    <div style="text-align:center;">
+      <button class="btn" onclick="showPage('page1')">Start Scrapbook</button>
+    </div>
+    <audio autoplay loop class="bg-audio">
+      <source src="audios/song_.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Example stickers -->
+    <img src="stickers/heart.png" class="sticker" style="top:50px; left:30px;">
+    <img src="stickers/star.png" class="sticker" style="top:150px; right:40px;">
+
+    <!-- Example sparkles -->
+    <div class="particle" style="top:80%; left:20%; animation-delay: 0s;"></div>
+    <div class="particle" style="top:90%; left:50%; animation-delay: 2s;"></div>
+    <div class="particle" style="top:85%; left:70%; animation-delay: 4s;"></div>
+  </div>
+</div>
+
+<!-- Memory Pages 1-10 -->
+<div id="page1" class="page" style="background: url(https://i.pinimg.com/1200x/4f/68/fa/4f68faa654322e9983e96bd473623861.jpg) no-repeat center center fixed; background-size:cover;">
+  <div class="container">
+    <h2 style= text-align:center;>Dawn ✨ -A Trip to Remember</h2>
+    <div class="memory-layout">
+      <div class="memory-image">
+        <img src="images/us_1_png.png" alt="26 february 2025">
+      </div>
+      <div class="memory-text">
+        <p style="font-weight:bold; text-align:right;"><b>“Our First Trip Together” ✨💖
+That day will always be one of my happiest memories — it was not only our first trip together but also my very first trip ever 🌸. I still remember the moment we held hands for the first time 🤝💫. It was such a simple gesture, but it made my heart feel full, and I could feel how special that moment was ❤️. Sitting together in one seat, being so close to you, laughing, talking, and sharing little smiles 😊🌿, made the whole experience even more exciting and memorable.
+We also took our first photo together 📸🌷, and looking at it now makes me smile every time 😌✨. That picture captured not just a moment, but the happiness I felt being with you 💕. That trip wasn’t just a journey; it was the beginning of something beautiful — the start of “us” 🌟💞.</p>
+      </div>
+    </div>
+
+    <div class="nav-buttons">
+      <button class="btn" onclick="showPage('page2')">Next ➜</button>
+    </div>
+    <audio class="bg-audio" loop>
+      <source src="audios/song_1.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+</div>
+
+<div id="page2" class="page"style="background: url(https://i.pinimg.com/1200x/4f/68/fa/4f68faa654322e9983e96bd473623861.jpg) no-repeat center center fixed; background-size:cover;">
+  <div class="container">
+    <h2 style= text-align:center;>Bloom🌸 — "Chaos and closeness"</h2>
+    <div class="memory-layout">
+  <div class="memory-image">
+    <img src="images/us_8_png.jpg" alt="Our First Memory">
+  </div>
+  <div class="memory-text">
+    <p style="font-weight:bold; text-align:right;"><b>“Ethnic Day Memories” 💖✨
+
+Ethnic Day gave me so many memorable moments with you 🌸💫. We had a little fight when you reminded me about the poster, but soon we compromised 🤝💞. You took my photo 📸, and I showed you pictures from my gallery — friends and cousins — which made us laugh and enjoy the day together 😊🌿. We also took a photo together, which I know became one of your favorites 🌟✨. During MCA class, we talked a little and shared sweet moments 💕. We ate food together 🍴💖, enjoying every small laugh and glance. When I went to catch the bus, you called me 📱💞, and we talked so much, sharing little complaints but feeling close and cared for ❤️. That day, I truly felt your love and care 💖, and my feelings for you grew even stronger 💫..</p>
+  </div>
+</div>
+
+    <div class="nav-buttons">
+      <button class="btn" onclick="showPage('page3')">Next ➜</button>
+    </div>
+    <audio class="bg-audio" loop>
+      <source src="audios/song_2.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+</div>
+
+<div id="page3" class="page" style="background: url(https://i.pinimg.com/1200x/4f/68/fa/4f68faa654322e9983e96bd473623861.jpg)no-repeat center center fixed; background-size:cover;">
+  <div class="container">
+    <h2 style= text-align:center;>Gleam 🕊️— All About you🪐</h2>
+    <div class="memory-layout">
+  <div class="memory-image">
+    <img src="images/us_11.png" alt="Our First Memory">
+  </div>
+  <div class="memory-text">
+    <p  style="font-weight:bold; text-align:right;"><b>“Your Birthday Memories” 💖✨
+
+I still remember your birthday — I didn’t know how to wish you, how to celebrate it, or what to gift you 🎁🌸. I just knew I wanted to make your day special in my own way. It was Saturday, March 29, and there were no college classes. I decided to come, in the name of JavaScript 😉, without knowing what the day would bring. Then a small thought came to my mind — to give you flowers 🌷 and a cute holy Bible keychain ring 💫. When I gave the flowers, my hands were shivering, and my heartbeat was racing ❤️. The moment you smiled, your face glowed so brightly, and your eyes sparkled with pure happiness — a memory I’ll never forget 💞. We spent so much time together that day, laughing and enjoying each other’s company 🌿. It was a small celebration, but filled with my love for you 💕.  I wish we could celebrate every birthday together, forever ❤️.💖.</p>
+  </div>
+</div>
+
+    <div class="nav-buttons">
+      <button class="btn" onclick="showPage('page4')">Next ➜</button>
+    </div>
+    <audio class="bg-audio" loop>
+      <source src="audios/song_3.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+</div>
+<div id="page4" class="page" style="background: url( https://i.pinimg.com/1200x/4f/68/fa/4f68faa654322e9983e96bd473623861.jpg
+) no-repeat center center fixed; background-size:cover;">
+  <div class="container">
+    <h2 style= text-align:center;>Wander🌙 — The beginning of us👫</h2>
+    <div class="memory-layout">
+  <div class="memory-image">
+    <img src="images/us_5.png" alt="Our First Memory">
+  </div>
+  <div class="memory-text">
+    <p  style="font-weight:bold; text-align:right;"><b>“The Day Our Love Began” 💞🌸
+
+That day will always stay in my heart forever — the day we opened our love to each other 💖. Everything felt so real, so magical. You proposed to me, and for a moment, time just stopped ✨. I could see the love and care in your eyes, the softness in your words, and the truth in your heart ❤️. My heart was racing, and I couldn’t stop smiling. It felt like everything around us disappeared — it was just you and me, standing in a moment that changed everything 💫. That day wasn’t just a confession; it was the beginning of something beautiful, something pure. The way you looked at me, the way we held each other’s hands, and the happiness we shared — I can never forget it 🌷. It was the start of our love story, one I’ll always treasure deeply 💐💞..</p>
+  </div>
+</div>
+
+    <div class="nav-buttons">
+      <button class="btn" onclick="showPage('page5')">Next ➜</button>
+    </div>
+    <audio class="bg-audio" loop>
+      <source src="audios/song_4.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+</div>
+
+<div id="page5" class="page" style="background: url(https://i.pinimg.com/1200x/4f/68/fa/4f68faa654322e9983e96bd473623861.jpg)no-repeat center center fixed; background-size:cover;">
+  <div class="container">
+    <h2 style= text-align:center;>Lumen 💕— The distance fade❤️‍🩹</h2>
+    <div class="memory-layout">
+  <div class="memory-image">
+    <img src="images/us_14.png" alt="Our First Memory">
+  </div>
+  <div class="memory-text">
+    <p  style="font-weight:bold; text-align:right;"><b>
+“Us — Perfectly Imperfect”✨
+We became so close to each other that it felt impossible to stay apart 💫. Slowly, we got addicted to each other — your voice, your smile, your presence, everything about you became a part of my day ❤️. We laugh together, share secrets, and create countless small memories 🌸. Sometimes we fight too, over small things, but even in those moments, I feel your care hidden in your words 🤝💞. No matter how much we argue, we always find our way back to each other, because what we share is real and strong 💐. You’ve become my comfort, my happiness, and my peace 🌿. Every moment with you — whether it’s a fight, a smile, or silence — feels special in its own way. We may not be perfect, but our bond is, because it’s made of love, understanding, and endless connection 💖✨..</p>
+  </div>
+</div>
+
+    <div class="nav-buttons">
+      <button class="btn" onclick="showPage('page6')">Next ➜</button>
+    </div>
+    <audio class="bg-audio" loop>
+      <source src="audios/song_5.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+</div>
+
+<div id="page6" class="page"style="background: url(https://i.pinimg.com/1200x/4f/68/fa/4f68faa654322e9983e96bd473623861.jpg)no-repeat center center fixed; background-size:cover;">
+  <div class="container">
+    <h2 style= text-align:center;>❤️‍🔥Haven— A simple moment</h2>
+    <div class="memory-layout">
+  <div class="memory-image">
+    <img src="images/us_12.png" alt="Our First Memory">
+  </div>
+  <div class="memory-text">
+    <p  style="font-weight:bold; text-align:right;"><b>“The Day I’ll Never Forget” 💞✨
+
+That day was so emotional and unforgettable 💫. I came to your place, and you showed me where your amma worked — such a special moment 🌿. I sat on your scooter, and you drove; I completely melted watching you 🛵💖. We went for a small ride to Akara Pally, and every second felt precious. Then we visited the church, prayed together, and held a candle side by side 🕯️💐. You gave me kotha, and my heart was full of joy. Later, we went to Greeshma sister’s marriage, and on the bus, we sat in the same seat — your head resting on my shoulder 💞. As time passed, I felt sad knowing I had to leave. The whole day with you felt magical, and the moment I left, I missed you deeply 💔. Even now, I can’t forget how you waited for me at the bus stop — that moment stays in my heart forever ❤️✨..</p>
+  </div>
+</div>
+
+    <div class="nav-buttons">
+      <button class="btn" onclick="showPage('page7')">Next ➜</button>
+    </div>
+    <audio class="bg-audio" loop>
+      <source src="audios/song_7.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+</div>
+
+<div id="page7" class="page"style="background: url(https://i.pinimg.com/1200x/4f/68/fa/4f68faa654322e9983e96bd473623861.jpg) no-repeat center center fixed; background-size:cover;">
+  <div class="container">
+    <h2 style= text-align:center;>Embrace— Bloomin Tradition💏</h2>
+    <div class="memory-layout">
+  <div class="memory-image">
+    <img src="images/us_19.png" alt="Our First Memory">
+  </div>
+  <div class="memory-text">
+    <p  style="font-weight:bold; text-align:right;"><b>“Our First Onam Together” 💛🌿
+
+Our first Onam together was so special and full of emotions 💫. You were so excited for that day, and I was equally happy to celebrate it with you 🌸. I couldn’t wait to see you in mundu and shirt — you looked so cute wearing the same color border mundu, just like I wished 🤍✨. I loved how you always considered my opinions and gave value to my words 💞. We took so many photos together — you captured me, and I captured you 📸💐. We even posted our first close-friends story together 💫. I gave you the new edition of Milkbar, and you liked it 🍫☺️. You showed me your amma and achan together, and that moment made me emotional — my eyes filled with tears ❤️. We had a small fight, but it ended with smiles. Later, we went to eat mandhi — your first time — and I felt so happy seeing your joy 💕✨..</p>
+  </div>
+</div>
+
+    <div class="nav-buttons">
+      <button class="btn" onclick="showPage('page8')">Next ➜</button>
+    </div>
+    <audio class="bg-audio" loop>
+      <source src="audios/song_9.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+</div>
+
+<div id="page8" class="page" style="background: url(https://i.pinimg.com/1200x/4f/68/fa/4f68faa654322e9983e96bd473623861.jpg) no-repeat center center fixed; background-size:cover;">
+  <div class="container">
+    <h2 style= text-align:center;>Unite💗 — Clashes wee many,but love was louder</h2>
+    <div class="memory-layout">
+  <div class="memory-image">
+    <img src="images/us_20.png" alt="Our First Memory">
+  </div>
+  <div class="memory-text">
+    <p  style="font-weight:bold; text-align:right;"><b>“Through Every Fight” ❤️‍🔥
+
+We fight almost every day, and problems come again and again 💫. Sometimes we both feel mentally down, tired, and lost 💭. But deep inside, we know the truth — no matter how hard it gets, we can’t live without each other 💞. Our bond is built on love, care, and understanding. Even after every argument, we find our way back, because our hearts know where they belong 💕. We may not be perfect, but we’re real — two people who fight, forgive, and love endlessly 🌸. And that’s what makes our relationship truly special ❤️✨..</p>
+  </div>
+</div>
+
+    <div class="nav-buttons">
+      <button class="btn" onclick="showPage('page9')">Next ➜</button>
+    </div>
+    <audio class="bg-audio" loop>
+      <source src="audios/song_8.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+</div>
+
+<div id="page9" class="page" style="background: url(https://i.pinimg.com/1200x/4f/68/fa/4f68faa654322e9983e96bd473623861.jpg) no-repeat center center fixed; background-size:cover;">
+  <div class="container">
+    <h2 style= text-align:center;>Ethereal — Dreamy connection🫶</h2>
+    <div class="memory-layout">
+  <div class="memory-image">
+    <img src="images/us_16.png" alt="Our First Memory">
+  </div>
+  <div class="memory-text">
+    <p  style="font-weight:bold; text-align:right;"><b>My Love,
+
+From the very first moment you walked into my life, something inside me shifted. You became the quiet comfort to my chaos, the warmth to my cold days, and the reason behind my smiles. Every glance of yours, every word you speak, feels like a soft melody I never want to stop hearing.
+
+I love you not just for who you are, but for how you make me feel — seen, valued, and deeply cared for. Even when we fight, even when things get hard, I still find myself running back to you because you’re my home, my peace, and my person.
+
+Thank you for loving me so purely, for accepting me through my flaws, and for giving me a love that feels like the safest place in the world. With you, every moment is a memory, every day is a gift, and every tomorrow is something I look forward to.
+
+I love you endlessly. I love you completely.
+Always yours,
+❤️.</p>
+  </div>
+</div>
+
+   <div class="nav-buttons">
+      <button class="btn" onclick="showPage('page10')">Next ➜</button>
+    </div>
+    <audio class="bg-audio" loop>
+      <source src="audios/us_10.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+</div>
+
+<div id="page10" class="page" style="background: url(https://i.pinimg.com/1200x/4f/68/fa/4f68faa654322e9983e96bd473623861.jpg)no-repeat center center fixed; background-size:cover;">
+  <div class="container">
+    <h2 style= text-align:center;>Serene — Forever Us😙</h2>
+    <div class="memory-layout">
+  <div class="memory-image">
+    <img src="images/us_13.png" alt="Our First Memory">
+  </div>
+  <div class="memory-text">
+    <p  style="font-weight:bold; text-align:right;"><b>My Heart, 💌✨
+
+Don’t ever leave me. Thank you for coming into my life and choosing to stay with me 🌸. You’ve become my world, my peace, and my safe place. Please, never break this bond we’ve built, never let go of my hand, never walk away from what we share 💞.
+
+I don’t need perfection, I just need you. Your presence, your love, your care — they’re all I’ll ever ask for ❤️. With you, every moment feels like home, and I want to keep building memories with you for a lifetime 🌿💫.
+
+I love you always and forever, with everything I am and everything I’ll be 💖✨
+
+Forever yours,
+❤️.</p>
+  </div>
+</div>
+
+    <div class="nav-buttons">
+      <button class="btn" onclick="showPage('welcome')">Back to Start ❤️</button>
+    </div>
+    <audio class="bg-audio" loop>
+      <source src="audios/song_6.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+</div>
+
+<!-- JavaScript to navigate pages and handle audio -->
+<script>
+function showPage(pageId){
+  // Stop all audio
+  const audios = document.querySelectorAll('audio');
+  audios.forEach(a => { a.pause(); a.currentTime = 0; });
+
+  // Hide all pages
+  const pages = document.querySelectorAll('.page');
+  pages.forEach(p => p.classList.remove('active'));
+
+  // Show requested page
+  const page = document.getElementById(pageId);
+  if(page){
+    page.classList.add('active');
+
+    // Play audio if exists
+    const audio = page.querySelector('audio');
+    if(audio){
+      audio.play().catch(()=>{ console.log('Autoplay blocked. Click a button to start music.'); });
+    }
+  }
+}
+</script>
+
+</body>
+</html>
